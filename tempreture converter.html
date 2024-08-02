@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Calculator</title>
+    <link rel="stylesheet" href="../js/css.css">
+</head>
+<body>
+    <div id="container">
+        <h2>Temperature Calculator</h2>
+        <div id="div-1">
+            <div class="in-div">
+                <label for="cel">Celsius</label><br>
+                <input type="number" id="cel" class="in" value="0">
+            </div>
+            <div class="in-div">
+                <label for="fah">Fahrenheit</label><br>
+                <input type="number" id="fah" class="in" value="32">
+            </div>
+        </div>
+    </div>
+    <script>
+        var cel = document.getElementById("cel");
+        var fah = document.getElementById("fah");
+
+        cel.addEventListener('input', function() {
+            let c = this.value;
+            let f = (c * 9/5) + 32;
+            if(!Number.isInteger(f))
+            {
+                f=f.tofixed(4);
+            }
+            fah.value = f;
+        });
+
+        fah.addEventListener('input', function() {
+            let f = this.value;
+            let c = (f - 32) * 5/9;
+            if(!Number.isInteger(c))
+            {
+                c=c.tofixed(4);
+            }
+            cel.value = c;
+        });
+    </script>
+</body>
+</html>
